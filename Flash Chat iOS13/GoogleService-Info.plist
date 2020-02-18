@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>412370522379-nvdpshjg56m3rhgke43o3o96ioodmm4e.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.412370522379-nvdpshjg56m3rhgke43o3o96ioodmm4e</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAhylRr9APWoGUsVYrksXhNa4kHX0RDFm8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>412370522379</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>co.molnardavid.ChatApp</string>
+	<key>PROJECT_ID</key>
+	<string>chatapp-3a97f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>chatapp-3a97f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:412370522379:ios:b7ed4199100b1e2251920e</string>
+	<key>DATABASE_URL</key>
+	<string>https://chatapp-3a97f.firebaseio.com</string>
+</dict>
+</plist>
