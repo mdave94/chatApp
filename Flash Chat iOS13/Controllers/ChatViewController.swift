@@ -14,12 +14,7 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageTextfield: UITextField!
     
-    var messages:[Message] = [
-    Message(sender: "1@2.com",body: "Hey!"),
-    Message(sender: "david@david.hu", body: "Hello"),
-    Message(sender: "1@2.com",body: "Whatsup WhatsupWhatsupWhatsup WhatsupWhatsupWhatsupWhatsupWhatsupWhatsupWhatsupWhatsupWhatsupWhatsupWhatsupWhatsup?"),
-        
-    ]
+    var messages:[Message] = []
     
     
     let db = Firestore.firestore()
@@ -36,7 +31,37 @@ class ChatViewController: UIViewController {
         
         
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
+        loadMessages()
     }
+    
+    func loadMessages(){
+        messages = []
+        
+        db.collection(K.FStore.collectionName).getDocuments { (querySnapshot, error) in
+            if let e = error {
+                print("There i a problem in loading messages: \(e)")
+            }else{
+                if let snapshotDocuments = querySnapshot?.documents{
+                    for document in snapshotDocuments{
+                        let data = document.data()
+                        if let messageSender = data[K.FStore.senderField] as? String , let messageBody=data[K.FStore.bodyField] as? String{
+                            
+                            let newMessage = Message(sender: messageSender, body: messageBody)
+                            self.messages.append(newMessage)
+                            
+                            DispatchQueue.main.async {
+                                      self.tableView.reloadData()
+                            }
+                            
+                          
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+    
     
     @IBAction func sendPressed(_ sender: UIButton) {
         if let messageBody = messageTextfield.text,let messageSender = Auth.auth().currentUser?.email{
