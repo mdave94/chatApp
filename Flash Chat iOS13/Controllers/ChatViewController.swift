@@ -41,7 +41,7 @@ class ChatViewController: UIViewController {
             self.messages = []
             
             if let e = error {
-                print("There i a problem in loading messages: \(e)")
+                print("There is a problem in loading messages: \(e)")
             }else{
                 if let snapshotDocuments = querySnapshot?.documents{
                     for document in snapshotDocuments{
